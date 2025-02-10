@@ -1,18 +1,35 @@
 package com.practice.demo.service;
 
 
+import com.practice.demo.entity.Item;
+import com.practice.demo.entity.ItemRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
 
 /**
  * @Readサービス
  **/
 @Service
 public class ReadService {
+
+    /** フィールド */
+    private final ItemRepository itemRepository;
+
+    /** コンストラクタ */
+    @Autowired
+    public ReadService(ItemRepository itemRepository){
+        this.itemRepository = itemRepository;
+    }
+
+    @Transactional // DBとのやり取りに使うアノテーション,データの読み込みだけのためreadOnly = true
+    public List<Item> findAllItems(){
+        return this.itemRepository.findAll();
+    }
+
     // 現在の日付を取得する処理
     public String getDisplayDate(){
 

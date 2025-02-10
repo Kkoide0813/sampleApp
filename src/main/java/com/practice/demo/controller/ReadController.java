@@ -3,12 +3,15 @@ package com.practice.demo.controller;
 * Readコントローラ
 */
 
+import com.practice.demo.entity.Item;
 import com.practice.demo.service.ReadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequestMapping(value = "/read")
@@ -29,12 +32,18 @@ public class ReadController {
      * @param model モデル
      * @return Path
      */
-    // init.htmlにアクセスした際にitemListビューを返す。
-    // ビューに返すデータはReadServiceクラスのgetDisplayDate()を呼び出し、日時を取得。Modelオブジェクトを使って設定される。
+    // init.htmlにアクセスした際にitemListビューへ遷移
     @RequestMapping(value = "/init")
     public String init(Model model){
-        String displayDate = this.readService.getDisplayDate(); // 現在の日時取得
-        model.addAttribute("displayDate", displayDate); // Thymeleafにデータを渡す。
+        // 現在の日付を取得し、modelに格納 → keyの値でThymeleafで参照可能にする
+        String displayDate = this.readService.getDisplayDate();
+        model.addAttribute("displayDate", displayDate);
+
+        // DBに登録されているすべてのアイテムをアイテム型のリスト変数itemsに格納。
+        List<Item> items =this.readService.findAllItems();
+        model.addAttribute("items", items);
+        System.out.println(items);
+
         return "itemList";
     }
 }
