@@ -1,3 +1,33 @@
+package com.practice.demo.service;
+
+
+import org.springframework.stereotype.Service;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
+
+/**
+ * @Readサービス
+ **/
+@Service
+public class ReadService {
+    // 現在の日付を取得する処理
+    public String getDisplayDate(){
+
+        //現在時刻でカレンダーのインスタンスを取得
+        Date date = new Date();
+//        Calendar cal = Calendar.getInstance();
+
+        //SimpleDateFormatで書式を指定
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        // 文字列型に変換しdisplayDateに格納
+        String displayDate = sdf.format(date);
+
+        return displayDate;
+    }
+}
 //package com.practice.demo.service;
 //
 //import com.practice.demo.entity.Item;
