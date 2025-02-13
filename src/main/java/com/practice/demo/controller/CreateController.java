@@ -1,18 +1,45 @@
-//package com.practice.demo.controller;
-//
-//import com.practice.demo.form.ItemCreateForm;
+package com.practice.demo.controller;
+
+import com.practice.demo.entity.Item;
 //import com.practice.demo.service.CreateService;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Controller;
-//import org.springframework.validation.BindingResult;
-//import org.springframework.validation.annotation.Validated;
-//import org.springframework.web.bind.annotation.ModelAttribute;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
+
+/** CreateController */
+@Controller
+@RequestMapping(value = "/create")
+public class CreateController {
+//    /** フィールド */
+//    private final CreateService createService;
 //
-///**
-// * Createコントローラ。
-// */
+//    /** コンストラクタ */
+//    @Autowired
+//    public CreateController(CreateService createService){
+//        this.createService = createService;
+//    }
+
+    /**
+     * 商品一覧初期表示。
+     *
+     * @return Path
+     */
+    // init.htmlにアクセスした際にitemCreateFormビューへ遷移
+    @RequestMapping(value = "/init")
+    public String init(){
+        return "itemCreateForm";
+    }
+}
+
+
+
+//
+//
+//
 //@Controller
 //@RequestMapping(value = "/create")
 //public class CreateController {
@@ -55,4 +82,4 @@
 //        service.create(itemCreateForm);
 //        return "itemCreateComplete";
 //    }
-//}
+

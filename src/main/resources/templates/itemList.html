@@ -13,11 +13,6 @@
             <h2 class="text-center pb-4" id="orange" th:text=" ${displayDate} + 時点の商品一覧 "></h2>
         </div>
     </div>
-    <div class="row">
-        <div class="mx-auto">
-            <a th:href="@{'/'}">TOPへ</a>
-        </div>
-    </div>
     <!--     <div class="row">-->
     <!--         <div class="mx-auto">-->
     <!--             <a th:href="@{'/create/init'}">商品登録</a>-->
@@ -38,6 +33,12 @@
         </tr>
         </tbody>
     </table>
+    <br>
+    <div class="row">
+        <div class="mx-auto">
+            <a th:href="@{'/'}">TOPへ</a>
+        </div>
+    </div>
 </div>
 </body>
 </html>

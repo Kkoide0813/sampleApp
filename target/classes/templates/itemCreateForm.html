@@ -1,3 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <link href="/static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
+    <link href="/static/css/training.css" th:href="@{/css/training.css}" rel="stylesheet"/>
+    <title>商品登録ページ</title>
+</head>
+<body>
+<div class="container py-3">
+    <div class="row">
+        <div class="col-12 mx-auto">
+            <h2 class="text-center pb-4">商品登録ページ</h2>
+        </div>
+    </div>
+
+<!--&lt;!&ndash;商品登録フォーム&ndash;&gt;-->
+<!--&lt;!&ndash;    postリクエストがされると、/create/doへ入力内容が送信される &ndash;&gt;-->
+<!--    <form id="itemCreateForm" method="post" th:action="@{/create/init}" th:object="${itemCreateForm}">-->
+<!--        <fieldset disabled>-->
+<!--        <legend>商品入力</legend>-->
+<!--            <br>-->
+<!--            <br>-->
+<!--            <div class="form-group required">-->
+<!--                <label for="name">商品名</label>-->
+<!--                <input type="text" class="form-control" id="name" th:field="*{name}" >-->
+<!--            </div>-->
+<!--            <br>-->
+<!--            <div class="form-group required">-->
+<!--                <label for="price">価格</label>-->
+<!--                <input type="text" class="form-control" id="price" th:field="*{price}">-->
+<!--            </div>-->
+<!--            <br>-->
+<!--            <br>-->
+<!--            <br>-->
+<!--&lt;!&ndash;        <button type="submit" class="btn btn-primary">登録</button>&ndash;&gt;-->
+<!--        </fieldset>-->
+<!--        <input type="submit" value="登録" class="btn btn-success"/>-->
+<!--    </form>-->
+
+
+
+<!--        <div class="card-body">-->
+<!--&lt;!&ndash;            <form id="itemCreateForm" method="post" th:action="@{/create/do}" th:object="${itemCreateForm}">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="form-group required">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <label for="name">商品名</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <input class="form-control" id="name" type="text" th:field="*{name}" name="name"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">error!</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="form-group required">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <label for="price">値段</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <input class="form-control" id="price" type="text" th:field="*{price}" name="price"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <span class="text-danger" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">error!</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--                <input type="submit" value="登録" class="btn btn-success"/>-->
+<!--            </form>-->
+<!--        </div>-->
+    <br>
+    <br>
+    <div class="row">
+        <div class="mx-auto">
+            <a th:href="@{'/'}">TOP</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!--<!DOCTYPE html>-->
 <!--<html xmlns:th="http://www.thymeleaf.org">-->
 <!--<head>-->

@@ -1,12 +1,33 @@
-//package com.practice.demo.form;
+package com.practice.demo.form;
 //
 //import javax.validation.constraints.NotBlank;
 //import javax.validation.constraints.Pattern;
 //import javax.validation.constraints.Size;
 //
-///**
-// * 商品登録フォーム。
-// */
+/**
+ * 商品登録フォーム。
+ */
+
+public class ItemCreateForm{
+    // フィールド
+    private String name;
+    private int price;
+
+    // getter,setter
+    public String getName() {
+        return name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+    public int getPrice(){
+        return price;
+    }
+    public void setPrice(int price){
+        this.price = price;
+    }
+}
+
 //public class ItemCreateForm {
 //
 //    @NotBlank(message = "商品名は必須です。")
