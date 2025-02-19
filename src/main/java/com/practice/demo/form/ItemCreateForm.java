@@ -11,7 +11,7 @@ package com.practice.demo.form;
 public class ItemCreateForm{
     // フィールド
     private String name;
-    private int price;
+    private String price; // 入力段階ではintにはできない
 
     // getter,setter
     public String getName() {
@@ -20,10 +20,10 @@ public class ItemCreateForm{
     public void setName(String name){
         this.name = name;
     }
-    public int getPrice(){
+    public String getPrice(){
         return price;
     }
-    public void setPrice(int price){
+    public void setPrice(String price){
         this.price = price;
     }
 }

@@ -11,47 +11,32 @@
     <div class="row">
         <div class="col-12 mx-auto">
             <h2 class="text-center pb-4">商品登録ページ</h2>
+            <h3>商品情報入力</h3>
+<!--"itemCreateForm"と入力項目を紐づけ-->
+            <form id="itemCreateForm" method="post" th:action="@{/create/do}" th:object="${itemCreateForm}">
+                <label for="name">商品名</label>
+                <input class="form-control" id="name" type="text" th:field="*{name}" name="name"/>
+                <label for="price">値段</label>
+                <input class="form-control" id="price" type="text" th:field="*{price}" name="price"/>
+                <input type="submit" value="登録" class="btn btn-success"/>
+            </form>
         </div>
     </div>
 
 <!--&lt;!&ndash;商品登録フォーム&ndash;&gt;-->
-<!--&lt;!&ndash;    postリクエストがされると、/create/doへ入力内容が送信される &ndash;&gt;-->
-<!--    <form id="itemCreateForm" method="post" th:action="@{/create/init}" th:object="${itemCreateForm}">-->
-<!--        <fieldset disabled>-->
-<!--        <legend>商品入力</legend>-->
-<!--            <br>-->
-<!--            <br>-->
-<!--            <div class="form-group required">-->
-<!--                <label for="name">商品名</label>-->
-<!--                <input type="text" class="form-control" id="name" th:field="*{name}" >-->
-<!--            </div>-->
-<!--            <br>-->
-<!--            <div class="form-group required">-->
-<!--                <label for="price">価格</label>-->
-<!--                <input type="text" class="form-control" id="price" th:field="*{price}">-->
-<!--            </div>-->
-<!--            <br>-->
-<!--            <br>-->
-<!--            <br>-->
-<!--&lt;!&ndash;        <button type="submit" class="btn btn-primary">登録</button>&ndash;&gt;-->
-<!--        </fieldset>-->
-<!--        <input type="submit" value="登録" class="btn btn-success"/>-->
-<!--    </form>-->
-
-
-
+<!--            -->
 <!--        <div class="card-body">-->
-<!--&lt;!&ndash;            <form id="itemCreateForm" method="post" th:action="@{/create/do}" th:object="${itemCreateForm}">&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="form-group required">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <label for="name">商品名</label>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <input class="form-control" id="name" type="text" th:field="*{name}" name="name"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">error!</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="form-group required">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <label for="price">値段</label>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <input class="form-control" id="price" type="text" th:field="*{price}" name="price"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <span class="text-danger" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">error!</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--            <form id="itemCreateForm" method="post" th:action="@{/create/do}" th:object="${itemCreateForm}">-->
+<!--                <div class="form-group required">-->
+<!--                    <label for="name">商品名</label>-->
+<!--                    <input class="form-control" id="name" type="text" th:field="*{name}" name="name"/>-->
+<!--                    <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">error!</span>-->
+<!--                </div>-->
+<!--                <div class="form-group required">-->
+<!--                    <label for="price">値段</label>-->
+<!--                    <input class="form-control" id="price" type="text" th:field="*{price}" name="price"/>-->
+<!--                    <span class="text-danger" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">error!</span>-->
+<!--                </div>-->
 <!--                <input type="submit" value="登録" class="btn btn-success"/>-->
 <!--            </form>-->
 <!--        </div>-->

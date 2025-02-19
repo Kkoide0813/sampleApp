@@ -1,12 +1,15 @@
 package com.practice.demo.controller;
 
 import com.practice.demo.entity.Item;
-//import com.practice.demo.service.CreateService;
+import com.practice.demo.service.CreateService;
+import com.practice.demo.form.ItemCreateForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -14,24 +17,33 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "/create")
 public class CreateController {
-//    /** フィールド */
-//    private final CreateService createService;
-//
-//    /** コンストラクタ */
-//    @Autowired
-//    public CreateController(CreateService createService){
-//        this.createService = createService;
-//    }
+    /** フィールド */
+    private final CreateService createService;
+
+    /** コンストラクタ */
+    @Autowired
+    public CreateController(CreateService createService){
+        this.createService = createService;
+    }
 
     /**
      * 商品一覧初期表示。
      *
+     * @param itemCreateForm 商品登録フォーム
      * @return Path
      */
     // init.htmlにアクセスした際にitemCreateFormビューへ遷移
     @RequestMapping(value = "/init")
-    public String init(){
+    public String init(@ModelAttribute ItemCreateForm itemCreateForm){ // FormクラスがModelにセットされ、ItemCreateFormがThymeleafで利用可能になる
         return "itemCreateForm";
+    }
+
+
+    // 商品登録完了ページへ遷移
+    // 入力内容がマッピングされたフォームクラスを受け取り
+    @RequestMapping(value= "/do", method = RequestMethod.POST)
+    public String create(@ModelAttribute ItemCreateForm itemCreateForm){
+        return "itemCreateComplete";
     }
 }
 

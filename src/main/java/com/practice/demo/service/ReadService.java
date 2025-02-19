@@ -25,7 +25,7 @@ public class ReadService {
         this.itemRepository = itemRepository;
     }
 
-    @Transactional // DBとのやり取りに使うアノテーション,データの読み込みだけのためreadOnly = true
+    @Transactional // DBとのやり取りに使うアノテーション
     public List<Item> findAllItems(){
         return this.itemRepository.findAll();
     }
