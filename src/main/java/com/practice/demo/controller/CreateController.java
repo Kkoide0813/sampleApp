@@ -1,8 +1,7 @@
 package com.practice.demo.controller;
 
-import com.practice.demo.entity.Item;
-import com.practice.demo.service.CreateService;
 import com.practice.demo.form.ItemCreateForm;
+import com.practice.demo.service.CreateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,12 +17,12 @@ import java.util.List;
 @RequestMapping(value = "/create")
 public class CreateController {
     /** フィールド */
-    private final CreateService createService;
+    private final CreateService service;
 
     /** コンストラクタ */
     @Autowired
     public CreateController(CreateService createService){
-        this.createService = createService;
+        this.service = createService;
     }
 
     /**
@@ -38,11 +37,18 @@ public class CreateController {
         return "itemCreateForm";
     }
 
-
+    /**
+     * 商品登録。
+     *
+     * @param itemCreateForm 精査済み商品登録フォーム
+//     * @param bindingResult 商品登録フォーム精査結果
+     * @return Path
+     */
     // 商品登録完了ページへ遷移
     // 入力内容がマッピングされたフォームクラスを受け取り
     @RequestMapping(value= "/do", method = RequestMethod.POST)
     public String create(@ModelAttribute ItemCreateForm itemCreateForm){
+        service.create(itemCreateForm);
         return "itemCreateComplete";
     }
 }
