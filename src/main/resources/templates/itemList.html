@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http:www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <link href="/static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
@@ -7,37 +7,86 @@
     <title>商品一覧</title>
 </head>
 <body>
+<!-- ダサすぎるので、グリッド上にID、名前、価格を表示し、更新・削除ボタンを追加したい -->
 <div class="container py-3">
     <div class="row">
         <div class="col-12 mx-auto">
-            <h2 class="text-center pb-4" id="orange" th:text="${displayDate} + 時点の商品一覧"></h2>
+            <h2 class="text-center pb-4" id="orange" th:text=" ${displayDate} + 時点の商品一覧 "></h2>
         </div>
     </div>
+         <div class="row">
+             <div class="mx-auto">
+                 <a th:href="@{'/create/init'}">商品登録</a>
+             </div>
+         </div>
+    <table>
+        <thead>
+        <tr>
+            <th>商品名</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--Thymeleafで繰り返し処理を行うには、th:eachを使用-->
+        <tr th:each="item : ${items}">
+            <td>
+                <!-- 遷移先のURL（パラメータ：id, 値：${item.id}） -->
+                <a th:href="@{/delete/init(id=${item.id})}">
+                    <p th:text="${item.name}"></p>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
     <div class="row">
-        <div class="col-6 mx-auto">
-            <table class="table table-striped table-bordered">
-                <thead>
-                <tr>
-                    <th>商品名</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="item : ${items}">
-                    <td>
-                        <a th:href="@{/delete/init(id=${item.id})}">
-                            <p class="omit-letters mb-0" th:text="${item.name}"></p>
-                        </a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-6 mx-auto">
-            <div class="pt-4"><a th:href="@{/}">TOPへ</a></div>
+        <div class="mx-auto">
+            <a th:href="@{'/'}">TOPへ</a>
         </div>
     </div>
 </div>
 </body>
 </html>
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="utf-8"/>-->
+<!--    <link href="/static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet"/>-->
+<!--    <link href="/static/css/training.css" th:href="@{/css/training.css}" rel="stylesheet"/>-->
+<!--    <title>商品一覧</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="container py-3">-->
+<!--    <div class="row">-->
+<!--        <div class="col-12 mx-auto">-->
+<!--            <h2 class="text-center pb-4" id="orange" th:text="${displayDate} + 時点の商品一覧"></h2>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="row">-->
+<!--        <div class="col-6 mx-auto">-->
+<!--            <table class="table table-striped table-bordered">-->
+<!--                <thead>-->
+<!--                <tr>-->
+<!--                    <th>商品名</th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                <tr th:each="item : ${items}">-->
+<!--                    <td>-->
+<!--                        <a th:href="@{/delete/init(id=${item.id})}">-->
+<!--                            <p class="omit-letters mb-0" th:text="${item.name}"></p>-->
+<!--                        </a>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="row">-->
+<!--        <div class="col-6 mx-auto">-->
+<!--            <div class="pt-4"><a th:href="@{/}">TOPへ</a></div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
