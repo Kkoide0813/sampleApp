@@ -5,6 +5,8 @@ import com.practice.demo.service.CreateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,13 +43,16 @@ public class CreateController {
      * 商品登録。
      *
      * @param itemCreateForm 精査済み商品登録フォーム
-//     * @param bindingResult 商品登録フォーム精査結果
+     * @param bindingResult 商品登録フォーム精査結果
      * @return Path
      */
     // 商品登録完了ページへ遷移
     // 入力内容がマッピングされたフォームクラスを受け取り
     @RequestMapping(value= "/do", method = RequestMethod.POST)
-    public String create(@ModelAttribute ItemCreateForm itemCreateForm){
+    public String create(@ModelAttribute @Validated ItemCreateForm itemCreateForm, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return "itemCreateForm";
+        }
         service.create(itemCreateForm);
         return "itemCreateComplete";
     }

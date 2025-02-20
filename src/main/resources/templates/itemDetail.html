@@ -1,54 +1,55 @@
-<!--<!DOCTYPE html>-->
-<!--<html xmlns:th="http://www.thymeleaf.org">-->
-<!--<head>-->
-<!--    <meta charset="utf-8"/>-->
-<!--    <link href="/static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet"/>-->
-<!--    <link href="/static/css/training.css" th:href="@{/css/training.css}" rel="stylesheet"/>-->
-<!--    <title>商品詳細</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<div class="container py-3">-->
-<!--    <div class="row">-->
-<!--        <div class="col-6 mx-auto">-->
-<!--            <h2 class="text-center pb-4" id="orange">商品詳細</h2>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class="row">-->
-<!--        <div class="col-6 mx-auto">-->
-<!--            <div class="card rounded-0">-->
-<!--                <div class="card-header">-->
-<!--                    <h3 class="mb-0">商品情報</h3>-->
-<!--                </div>-->
-<!--                <div class="card-body">-->
-<!--                    <h4><span class="badge badge-success">ID</span></h4>-->
-<!--                    <p th:text="${item.id}"></p>-->
-<!--                    <h4><span class="badge badge-success">商品名</span></h4>-->
-<!--                    <p th:text="${item.name}"></p>-->
-<!--                    <h4><span class="badge badge-success">値段</span></h4>-->
-<!--                    <p th:text="${item.price + '円'}"></p>-->
-<!--                    <div class="row">-->
-<!--                        <div class="col-2">-->
-<!--                            <form name="deleteForm" method="post" th:action="@{'/delete/do'}">-->
-<!--                                <input type="submit" class="btn btn-danger" value="削除"/>-->
-<!--                                <input type="hidden" name="id" th:value="${item.id}"/>-->
-<!--                            </form>-->
-<!--                        </div>-->
-<!--                        <div class="col-2">-->
-<!--                            <form name="updateForm" method="post" th:action="@{'/update/init'}">-->
-<!--                                <input type="submit" class="btn btn-primary" value="編集"/>-->
-<!--                                <input type="hidden" name="id" th:value="${item.id}"/>-->
-<!--                            </form>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class="row">-->
-<!--        <div class="col-6 mx-auto">-->
-<!--            <div class="pt-4"><a th:href="@{/}">TOPへ</a></div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-<!--</body>-->
-<!--</html>-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <link href="/static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
+    <link href="/static/css/training.css" th:href="@{/css/training.css}" rel="stylesheet"/>
+    <title>商品詳細</title>
+</head>
+<body>
+<div class="container py-3">
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <h2 class="text-center pb-4" id="orange">商品詳細</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <div class="card rounded-0">
+                <div class="card-header">
+                    <h3 class="mb-0">商品情報</h3>
+                </div>
+                <div class="card-body">
+                    <h4><span class="badge badge-success">ID</span></h4>
+                    <p th:text="${item.id}"></p>
+                    <h4><span class="badge badge-success">商品名</span></h4>
+                    <p th:text="${item.name}"></p>
+                    <h4><span class="badge badge-success">値段</span></h4>
+                    <p th:text="${item.price + '円'}"></p>
+                    <div class="row">
+                        <div class="col-2">
+                            <form name="deleteForm" method="post" th:action="@{'/delete/do'}">
+                                <input type="submit" class="btn btn-danger" value="削除"/>
+                                <input type="hidden" name="id" th:value="${item.id}"/>
+                            </form>
+                        </div>
+                        <div class="col-2">
+                            <form name="updateForm" method="post" th:action="@{'/update/init'}">
+                                <input type="submit" class="btn btn-primary" value="編集"/>
+                                <input type="hidden" name="id" th:value="${item.id}"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <div class="pt-4"><a th:href="@{/read/init}">商品一覧へ</a></div>
+            <div class="pt-4"><a th:href="@{/}">TOPへ</a></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
