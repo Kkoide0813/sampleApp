@@ -39,6 +39,14 @@ public class CreateController {
         return "itemCreateForm";
     }
 
+//    // 検証用 @ModelAttributeと同じ結果になった
+//    @RequestMapping("/init")
+//    public String init(Model model) { // いつインスタンス化したのか知らんけど、modelオブジェクト呼び出せる。
+//        model.addAttribute("itemCreateForm", new ItemCreateForm()); // importしたModelインターフェースからメソッドを呼び出してる
+//        return "itemCreateForm";//itemCreateForm.htmlのこと
+//    }
+
+
     /**
      * 商品登録。
      *

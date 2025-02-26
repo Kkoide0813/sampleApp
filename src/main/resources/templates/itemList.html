@@ -29,7 +29,7 @@
         <!--Thymeleafで繰り返し処理を行うには、th:eachを使用-->
         <tr th:each="item : ${items}">
             <td>
-                <!-- 遷移先のURL（パラメータ：id, 値：${item.id}） -->
+                <!-- 削除  遷移先のURL（パラメータ：id, 値：${item.id}） -->
                 <a th:href="@{/delete/init(id=${item.id})}">
                     <p th:text="${item.name}"></p>
                 </a>
