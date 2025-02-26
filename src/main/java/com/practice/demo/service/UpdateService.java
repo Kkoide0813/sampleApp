@@ -32,7 +32,6 @@ public class UpdateService {
         this.itemRepository = itemRepository;
     }
 
-
     /**
      * IDで商品取得
      *
